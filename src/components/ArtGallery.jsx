@@ -52,7 +52,7 @@ const artworks = [
   },
   {
     id: 7,
-     src: "/art/IMG_3652.jpeg",
+    src: "/art/IMG_3652.jpeg",
     // title: "Title 7",
     // medium: "Medium",
     // year: 2025,
@@ -75,6 +75,10 @@ const artworks = [
     // alt: "Describe this piece",
   },
 ];
+
+// Adds the site's base path (/portfolio/) so images work on GitHub Pages
+const assetUrl = (path) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
 
 export default function ArtGallery() {
   const dialogRef = useRef(null);
@@ -101,7 +105,7 @@ export default function ArtGallery() {
               className="gallery-item"
               onClick={() => openPiece(piece)}
             >
-              <img src={piece.src} alt={piece.alt} loading="lazy" />
+              <img src={assetUrl(piece.src)} alt={piece.alt} loading="lazy" />
               <span className="gallery-caption">{piece.title}</span>
             </button>
           </li>
@@ -119,7 +123,7 @@ export default function ArtGallery() {
       >
         {selected && (
           <>
-            <img src={selected.src} alt={selected.alt} />
+            <img src={assetUrl(selected.src)} alt={selected.alt} />
             <p className="lightbox-info">
               <strong>{selected.title}</strong>
               <br />
