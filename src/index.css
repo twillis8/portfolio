@@ -1,0 +1,402 @@
+/* ---------- Theme variables ---------- */
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --card-bg: #f5f5f7;
+  --card-border: #d9d9de;
+  --link: #0b5cd5;
+  --input-bg: #ffffff;
+  --input-border: #8a8a94;
+  --button-bg: #e8e8ee;
+  --button-text: #1a1a1a;
+}
+
+[data-theme="dark"] {
+  --bg: #121316;
+  --text: #e8e8ec;
+  --card-bg: #1c1e24;
+  --card-border: #343842;
+  --link: #8ab4ff;
+  --input-bg: #1c1e24;
+  --input-border: #6b7080;
+  --button-bg: #2a2d36;
+  --button-text: #e8e8ec;
+  color-scheme: dark; /* dark scrollbars and native form controls */
+}
+
+/* ---------- Base styles ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  background: var(--bg);
+  color: var(--text);
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+a {
+  color: var(--link);
+}
+
+/* ---------- Cards ---------- */
+/* Replace .project-card with the class your ProjectCard.jsx actually uses */
+.card,
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* ---------- Form controls ---------- */
+input,
+textarea,
+select {
+  background: var(--input-bg);
+  color: var(--text);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  font: inherit;
+}
+
+/* ---------- Buttons (including the theme toggle) ---------- */
+button {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+button[aria-pressed="true"] {
+  outline: 2px solid var(--link);
+}
+/* ---------- Extra theme variable for secondary text ---------- */
+:root {
+  --muted: #5c5c66;
+}
+[data-theme="dark"] {
+  --muted: #a0a0ad;
+}
+
+/* ---------- Page layout: center content, add breathing room ---------- */
+header,
+main,
+footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+main {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+/* ---------- Header and navigation ---------- */
+header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--card-border);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  border-bottom-color: var(--link);
+}
+
+/* ---------- Headings and text ---------- */
+h1 {
+  margin: 0 0 1.25rem;
+  font-size: 2.25rem;
+  line-height: 1.2;
+}
+
+/* ---------- Filter form ---------- */
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  max-width: 360px;
+}
+
+/* the "1 project(s) found" line */
+main > p {
+  color: var(--muted);
+}
+
+/* ---------- Cards ---------- */
+.card {
+  margin-bottom: 1rem;
+  padding: 1.25rem 1.5rem;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+}
+
+.card h2 a {
+  text-decoration: none;
+}
+
+.card h2 a:hover {
+  text-decoration: underline;
+}
+
+.card p {
+  margin: 0 0 0.5rem;
+}
+
+.card p:last-child {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-top: 1px solid var(--card-border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+/* ---------- Accent colors ---------- */
+:root {
+  --accent-1: #4338ca; /* indigo */
+  --accent-2: #7c3aed; /* violet */
+  --accent-pop: #f59e0b; /* amber stripe */
+}
+
+[data-theme="dark"] {
+  --accent-1: #312e81;
+  --accent-2: #5b21b6;
+  --accent-pop: #fbbf24;
+}
+
+/* ---------- Header banner (full width, content stays centered) ---------- */
+header {
+  max-width: none;
+  margin: 0;
+  padding-top: 1.25rem;
+  padding-bottom: 1rem;
+  padding-left: max(1.5rem, calc((100% - 960px) / 2 + 1.5rem));
+  padding-right: max(1.5rem, calc((100% - 960px) / 2 + 1.5rem));
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  color: #ffffff;
+  border-bottom: 4px solid var(--accent-pop);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* The "Alex Rivera | Developer" line */
+header > *:not(nav) {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+header a,
+header nav a {
+  color: #ffffff;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  border-bottom-color: var(--accent-pop);
+}
+
+/* ---------- Small pops of color in the page body ---------- */
+h1::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 4px;
+  margin-top: 0.6rem;
+  border-radius: 2px;
+  background: var(--accent-pop);
+}
+
+.card {
+  border-left: 4px solid var(--accent-2);
+}
+/* ---------- Skip link: hidden until focused ---------- */
+.skip-link,
+a[href="#main"],
+a[href="#content"],
+a[href="#main-content"] {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--bg);
+  color: var(--text);
+  border: 2px solid var(--accent-pop);
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.15s;
+}
+
+.skip-link:focus,
+a[href="#main"]:focus,
+a[href="#content"]:focus,
+a[href="#main-content"]:focus {
+  top: 1rem;
+}
+
+/* ---------- Heading underline spans the full text ---------- */
+h1 {
+  display: table; /* shrink-wraps to the text width */
+}
+
+h1::after {
+  width: 100%;
+}
+/* ---------- Tighten spacing between major and minor lines ---------- */
+main h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.4rem;
+}
+
+main h1 + h2 {
+  margin-top: 1rem;
+}
+
+main h2 + p {
+  margin-top: 1rem;
+}
+
+/* Lists get normal bullets by default */
+main ul {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+
+main li {
+  margin-bottom: 0.25rem;
+}
+
+/* Opt-in: no bullets */
+.plain-list,
+.contact-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.plain-list + a {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.contact-list li {
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+}
+
+.plain-list,
+.contact-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.plain-list + a {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+main .plain-list,
+main .contact-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+main .gallery-grid {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* ---------- Enlarged view: fit everything on screen ---------- */
+.lightbox {
+  width: min(90vw, 760px);
+  max-height: 90vh;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+/* Only lay out as a column while open, so closing still hides it */
+.lightbox[open] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lightbox img {
+  display: block;
+  flex: 1 1 auto;
+  min-height: 0; /* lets the image shrink instead of overflowing */
+  max-width: 100%;
+  max-height: calc(90vh - 10rem); /* leaves room for text and button */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.lightbox-info {
+  flex: 0 0 auto;
+  margin: 0;
+  text-align: center;
+}
+
+.lightbox button {
+  flex: 0 0 auto;
+}
